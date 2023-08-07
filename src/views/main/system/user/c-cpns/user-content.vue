@@ -37,9 +37,28 @@
           label="状态"
           prop="enable"
           width="100px"
-        />
-        <el-table-column align="center" label="创建时间" prop="createAt" />
-        <el-table-column align="center" label="更新时间" prop="updateAt" />
+        >
+          <!-- 作用域插槽 -->
+          <template #default="scope">
+            <el-button
+              size="small"
+              :type="scope.row.enable ? 'primary' : 'danger'"
+              plain
+            >
+              {{ scope.row.enable ? '启用' : '禁用' }}
+            </el-button>
+          </template>
+        </el-table-column>
+        <el-table-column align="center" label="创建时间" prop="createAt">
+          <template #default="scope">
+            {{ formatUTC(scope.row.createAt) }}
+          </template>
+        </el-table-column>
+        <el-table-column align="center" label="更新时间" prop="updateAt">
+          <template #default="scope">
+            {{ formatUTC(scope.row.updateAt) }}
+          </template>
+        </el-table-column>
 
         <el-table-column align="center" label="操作" width="150px">
           <el-button size="small" icon="Edit" type="primary" text>
@@ -58,6 +77,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import useSystemStore from '@/store/main/system/system'
+import { formatUTC } from '@/utils/format'
+import { ref } from 'vue'
 
 // 1.发起action，请求usersList的数据
 const systemStore = useSystemStore()
