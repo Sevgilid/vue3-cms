@@ -12,17 +12,17 @@
     <!-- 2.中间部分的图表 -->
     <el-row :gutter="10">
       <el-col :span="7">
-        <chart-card>
+        <chart-card :header="'销量前十的商品数量'">
           <pie-echart :pie-data="showGoodsCategoryCount" />
         </chart-card>
       </el-col>
       <el-col :span="10">
-        <chart-card>
+        <chart-card :header="'不同城市的销量数据'">
           <map-echart :map-data="showGoodsAddressSale" />
         </chart-card>
       </el-col>
       <el-col :span="7">
-        <chart-card>
+        <chart-card :header="'每个分类商品的个数'">
           <rose-echart :rose-data="showGoodsCategoryCount" />
         </chart-card>
       </el-col>
@@ -31,12 +31,12 @@
     <!-- 3.底部部分的图表 -->
     <el-row :gutter="10">
       <el-col :span="12">
-        <chart-card>
+        <chart-card :header="'分类商品的销量'">
           <line-echart v-bind="showGoodsCategorySale" />
         </chart-card>
       </el-col>
       <el-col :span="12">
-        <chart-card>
+        <chart-card :header="'分类商品的收藏'">
           <bar-echart v-bind="showGoodsCategoryFavor" />
         </chart-card>
       </el-col>
