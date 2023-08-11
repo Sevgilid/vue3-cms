@@ -20,7 +20,7 @@
         <span class="user-info">
           <el-avatar
             :size="30"
-            src="https://upload.jianshu.io/users/upload_avatars/1102036/c3628b478f06.jpeg"
+            src="https://img.yzcdn.cn/upload_files/2020/01/30/Ft_dg7UY-XCsTOn5mfjDTSEV8YBH.jpg?imageView2/2/w/260/h/260/q/75/format/jpg"
           />
           <span class="name">{{ loginStore.userInfo.name }}</span>
         </span>
